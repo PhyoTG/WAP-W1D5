@@ -19,9 +19,10 @@ window.onload = function(){
 
     let turbo = document.getElementById("turbo");
     turbo.onchange = changeSpeed;
-}
+};
 
 function startButtonClicked(){
+    "use strict";
     if(mode != "Blank"){
         myTimer = setInterval(playAnimation, time, ANIMATIONS[mode]);
         document.getElementById("start").disabled = "disabled";
@@ -30,6 +31,7 @@ function startButtonClicked(){
 }
 
 function changeAnimation(){
+    "use strict";
     mode = document.getElementById("animation").value;
     document.getElementById("text-area").value = "";
     index = 0;
@@ -37,6 +39,7 @@ function changeAnimation(){
     startButtonClicked();
 }
 function playAnimation(ani){
+    "use strict";
     let arr = ani.split("=====\n");
     document.getElementById("text-area").value = arr[index];
     if (index > arr.length-2) {
@@ -48,16 +51,19 @@ function playAnimation(ani){
 }
 
 function stopAnimation(){
+    "use strict";
     clearInterval(myTimer);
     document.getElementById("stop").disabled = "disabled";
     document.getElementById("start").removeAttribute("disabled");
 }
 
 function fontChange(){
+    "use strict";
     document.getElementById("text-area").className = document.getElementById("fontsize").value;
 }
 
 function changeSpeed(){
+    "use strict";
     time = document.getElementById("turbo").checked ? 50 : 250;
     clearInterval(myTimer);
     startButtonClicked();
